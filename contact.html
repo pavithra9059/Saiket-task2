@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Luxe Market</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="cart.html" class="nav-cart">
+        🛒 Cart
+        <span class="cart-count" id="cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════ PAGE HEADER ══════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <span class="section-label">We're Here to Help</span>
+      <h1>Get in Touch</h1>
+      <p>Questions, feedback, or anything else — we'd love to hear from you.</p>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ CONTACT LAYOUT ══════════════ -->
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- ── Left: Info ── -->
+      <div class="contact-info">
+        <h2>Let's talk<br>about anything</h2>
+        <p>
+          Whether you have a question about an order, need product advice, or just want
+          to share some feedback — our team is ready to assist you every day of the week.
+        </p>
+
+        <div class="contact-detail-list">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📧</div>
+            <div class="contact-detail-text">
+              <strong>Email</strong>
+              <span>hello@luxemarket.in</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div class="contact-detail-text">
+              <strong>Phone</strong>
+              <span>+91 98765 43210</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🕐</div>
+            <div class="contact-detail-text">
+              <strong>Support Hours</strong>
+              <span>Mon – Sat, 9:00 AM – 7:00 PM IST</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div class="contact-detail-text">
+              <strong>Head Office</strong>
+              <span>Level 4, Maker Chambers V<br>Nariman Point, Mumbai 400021</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ snippets -->
+        <div style="margin-top:var(--space-2xl)">
+          <span class="section-label">Quick Answers</span>
+          <div style="display:flex;flex-direction:column;gap:var(--space-md);margin-top:var(--space-md)">
+            <details style="background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-md)">
+              <summary style="cursor:pointer;font-weight:600;font-size:.9rem">How long does delivery take?</summary>
+              <p style="margin-top:var(--space-sm);font-size:.85rem">Standard delivery takes 3–5 business days across India.</p>
+            </details>
+            <details style="background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-md)">
+              <summary style="cursor:pointer;font-weight:600;font-size:.9rem">What is your return policy?</summary>
+              <p style="margin-top:var(--space-sm);font-size:.85rem">We offer easy 30-day returns on all items, no questions asked.</p>
+            </details>
+            <details style="background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-md)">
+              <summary style="cursor:pointer;font-weight:600;font-size:.9rem">Do you ship internationally?</summary>
+              <p style="margin-top:var(--space-sm);font-size:.85rem">Currently we ship within India only. International shipping coming soon!</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ── Right: Form ── -->
+      <div class="contact-form-card">
+        <div class="form-card-title">Send a Message</div>
+
+        <!-- Contact form -->
+        <form class="contact-form" id="contact-form" novalidate>
+
+          <div class="form-group">
+            <label for="contact-name">Your Name *</label>
+            <input type="text" id="contact-name" placeholder="Priya Mehta">
+            <span class="error-msg" id="err-contact-name"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email Address *</label>
+            <input type="email" id="contact-email" placeholder="priya@example.com">
+            <span class="error-msg" id="err-contact-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <input type="text" id="contact-subject" placeholder="Order enquiry, product question…">
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message *</label>
+            <textarea id="contact-message" rows="5"
+                      placeholder="Tell us how we can help…"></textarea>
+            <span class="error-msg" id="err-contact-message"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:var(--space-sm)">
+            Send Message →
+          </button>
+
+        </form>
+
+        <!-- Success state (initially hidden) -->
+        <div class="contact-success" id="contact-success">
+          <div class="success-icon">✉️</div>
+          <h3>Message Received!</h3>
+          <p style="color:var(--color-muted);font-size:.9rem;margin-top:var(--space-sm)">
+            Thanks for reaching out. We'll get back to you within 24 hours.
+          </p>
+          <a href="products.html"
+             class="btn btn-outline"
+             style="margin-top:var(--space-xl);display:inline-flex">
+            Continue Shopping →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+          <p>Premium lifestyle products, carefully curated and delivered to your door.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?cat=Electronics">Electronics</a></li>
+            <li><a href="products.html?cat=Clothing">Clothing</a></li>
+            <li><a href="products.html?cat=Home">Home</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="cart.html">My Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 LuxeMarket. All rights reserved.</p>
+        <p>Made with ♥ for great design.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════ SCRIPTS ══════════════ -->
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+
+</body>
+</html>
