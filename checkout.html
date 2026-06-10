@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Luxe Market</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="cart.html" class="nav-cart">
+        🛒 Cart
+        <span class="cart-count" id="cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════ PAGE HEADER ══════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <span class="section-label">Almost There</span>
+      <h1>Checkout</h1>
+      <p>Complete your details below to place your order.</p>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ ORDER SUCCESS (initially hidden) ══════════════ -->
+  <div class="container order-success-wrap" style="margin-bottom:var(--space-xl)">
+    <div class="order-success" id="order-success">
+      <span class="success-checkmark">✅</span>
+      <h2 id="order-greeting">Thank you!</h2>
+      <p>Your order has been placed successfully. We'll send you a confirmation email shortly.</p>
+      <div class="order-number" id="order-id">ORD-XXXXXX</div>
+      <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap">
+        <a href="products.html" class="btn btn-primary">Continue Shopping →</a>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ CHECKOUT FORM & SUMMARY ══════════════ -->
+  <div class="container">
+    <div class="checkout-layout">
+
+      <!-- ── Left: Form ── -->
+      <form class="checkout-form-section" id="checkout-form" novalidate>
+
+        <!-- Personal Information -->
+        <div class="form-card">
+          <div class="form-card-title">1 — Personal Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" placeholder="Arjun Sharma" autocomplete="name">
+              <span class="error-msg" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="arjun@example.com" autocomplete="email">
+              <span class="error-msg" id="err-email"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" placeholder="98765 43210" autocomplete="tel">
+              <span class="error-msg" id="err-phone"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="form-card">
+          <div class="form-card-title">2 — Shipping Address</div>
+          <div class="form-row">
+            <div class="form-group full">
+              <label for="address">Street Address *</label>
+              <input type="text" id="address" placeholder="42, MG Road, Apartment 5B" autocomplete="street-address">
+              <span class="error-msg" id="err-address"></span>
+            </div>
+            <div class="form-group">
+              <label for="city">City *</label>
+              <input type="text" id="city" placeholder="Mumbai" autocomplete="address-level2">
+              <span class="error-msg" id="err-city"></span>
+            </div>
+            <div class="form-group">
+              <label for="state">State *</label>
+              <select id="state" autocomplete="address-level1">
+                <option value="">Select State</option>
+                <option>Andhra Pradesh</option><option>Arunachal Pradesh</option>
+                <option>Assam</option><option>Bihar</option><option>Chhattisgarh</option>
+                <option>Goa</option><option>Gujarat</option><option>Haryana</option>
+                <option>Himachal Pradesh</option><option>Jharkhand</option>
+                <option>Karnataka</option><option>Kerala</option>
+                <option>Madhya Pradesh</option><option>Maharashtra</option>
+                <option>Manipur</option><option>Meghalaya</option><option>Mizoram</option>
+                <option>Nagaland</option><option>Odisha</option><option>Punjab</option>
+                <option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option>
+                <option>Telangana</option><option>Tripura</option>
+                <option>Uttar Pradesh</option><option>Uttarakhand</option>
+                <option>West Bengal</option>
+                <option>Delhi</option><option>Jammu and Kashmir</option>
+                <option>Ladakh</option><option>Puducherry</option>
+              </select>
+              <span class="error-msg" id="err-state"></span>
+            </div>
+            <div class="form-group">
+              <label for="zip">PIN Code *</label>
+              <input type="text" id="zip" placeholder="400001" maxlength="6" autocomplete="postal-code">
+              <span class="error-msg" id="err-zip"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-card">
+          <div class="form-card-title">3 — Payment Method</div>
+
+          <div class="payment-methods">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="cod" checked>
+              <div class="payment-label">
+                <strong>Cash on Delivery</strong>
+                <span>Pay when your order arrives</span>
+              </div>
+              <span class="payment-icon">💵</span>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="payment" value="credit_card">
+              <div class="payment-label">
+                <strong>Credit / Debit Card</strong>
+                <span>Visa, Mastercard, RuPay</span>
+              </div>
+              <span class="payment-icon">💳</span>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="payment" value="upi">
+              <div class="payment-label">
+                <strong>UPI</strong>
+                <span>Google Pay, PhonePe, Paytm</span>
+              </div>
+              <span class="payment-icon">📱</span>
+            </label>
+          </div>
+
+          <!-- Credit card extra fields (shown conditionally) -->
+          <div id="credit-card-fields" style="margin-top:var(--space-lg)">
+            <div class="form-row">
+              <div class="form-group full">
+                <label for="card-number">Card Number *</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456"
+                       maxlength="19" oninput="formatCardNumber(this)">
+                <span class="error-msg" id="err-card-number"></span>
+              </div>
+              <div class="form-group">
+                <label for="card-expiry">Expiry (MM/YY) *</label>
+                <input type="text" id="card-expiry" placeholder="08/27"
+                       maxlength="5" oninput="formatExpiry(this)">
+                <span class="error-msg" id="err-card-expiry"></span>
+              </div>
+              <div class="form-group">
+                <label for="card-cvv">CVV *</label>
+                <input type="password" id="card-cvv" placeholder="•••" maxlength="4">
+                <span class="error-msg" id="err-card-cvv"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:.9rem 2.5rem;font-size:.95rem">
+          Place Order →
+        </button>
+
+      </form>
+
+
+      <!-- ── Right: Order Summary ── -->
+      <aside class="checkout-summary-panel">
+        <h3>Your Order</h3>
+
+        <div class="checkout-item-list" id="checkout-item-list">
+          <!-- Rendered by checkout.js -->
+        </div>
+
+        <div style="border-top:1px solid var(--color-border);padding-top:var(--space-md)">
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <span id="co-subtotal">—</span>
+          </div>
+          <div class="summary-line">
+            <span>Shipping</span>
+            <span id="co-shipping">—</span>
+          </div>
+          <div class="summary-line total">
+            <span>Total</span>
+            <span id="co-total">—</span>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:1px solid var(--color-border)">
+          <div style="font-size:.78rem;color:var(--color-muted);display:flex;flex-direction:column;gap:.5rem">
+            <span>🔒 256-bit SSL encryption</span>
+            <span>🚚 Estimated delivery: 3–5 business days</span>
+            <span>↩ 30-day easy returns</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+          <p>Premium lifestyle products, carefully curated and delivered to your door.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Shipping FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 LuxeMarket. All rights reserved.</p>
+        <p>Made with ♥ for great design.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════ SCRIPTS ══════════════ -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/checkout.js"></script>
+  <script>
+    /** Format card number: add spaces every 4 digits */
+    function formatCardNumber(input) {
+      let val = input.value.replace(/\D/g, '').substring(0, 16);
+      input.value = val.match(/.{1,4}/g)?.join(' ') || val;
+    }
+
+    /** Format expiry: insert / after 2 digits */
+    function formatExpiry(input) {
+      let val = input.value.replace(/\D/g, '').substring(0, 4);
+      if (val.length >= 3) val = val.slice(0, 2) + '/' + val.slice(2);
+      input.value = val;
+    }
+  </script>
+
+</body>
+</html>
