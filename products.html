@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — Luxe Market</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="cart.html" class="nav-cart">
+        🛒 Cart
+        <span class="cart-count" id="cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════ PAGE HEADER ══════════════ -->
+  <div class="page-header">
+    <div class="container">
+      <span class="section-label">Our Collection</span>
+      <h1>All Products</h1>
+      <p>Discover our curated selection of premium lifestyle essentials.</p>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ PRODUCTS LAYOUT ══════════════ -->
+  <div class="container">
+    <div class="products-page-layout">
+
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar">
+        <h3>Filter</h3>
+
+        <div class="filter-group">
+          <h4>Category</h4>
+          <label><input type="checkbox" value="Electronics" onchange="applyFilters()"> Electronics</label>
+          <label><input type="checkbox" value="Clothing"    onchange="applyFilters()"> Clothing</label>
+          <label><input type="checkbox" value="Accessories" onchange="applyFilters()"> Accessories</label>
+          <label><input type="checkbox" value="Home"        onchange="applyFilters()"> Home & Living</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <label><input type="checkbox" value="0-1500"  onchange="applyFilters()"> Under ₹1,500</label>
+          <label><input type="checkbox" value="1500-4000" onchange="applyFilters()"> ₹1,500 – ₹4,000</label>
+          <label><input type="checkbox" value="4000+"   onchange="applyFilters()"> Above ₹4,000</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Availability</h4>
+          <label><input type="checkbox" value="sale" onchange="applyFilters()"> On Sale</label>
+          <label><input type="checkbox" value="new"  onchange="applyFilters()"> New Arrivals</label>
+        </div>
+
+        <button class="btn btn-outline" style="width:100%;justify-content:center;margin-top:.5rem"
+                onclick="clearFilters()">Clear Filters</button>
+      </aside>
+
+      <!-- Products Area -->
+      <div>
+        <div class="products-toolbar">
+          <span class="products-count" id="products-count">Showing 12 products</span>
+          <select class="sort-select" id="sort-select" onchange="applyFilters()">
+            <option value="default">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name">Name: A–Z</option>
+          </select>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <!-- Rendered by JavaScript -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+          <p>Premium lifestyle products, carefully curated and delivered to your door.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?cat=Electronics">Electronics</a></li>
+            <li><a href="products.html?cat=Clothing">Clothing</a></li>
+            <li><a href="products.html?cat=Home">Home</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="cart.html">My Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 LuxeMarket. All rights reserved.</p>
+        <p>Made with ♥ for great design.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════ SCRIPTS ══════════════ -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script>
+    // ── Products page logic ──────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for category filter from URL
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('cat');
+      if (cat) {
+        const boxes = document.querySelectorAll(`input[value="${cat}"]`);
+        boxes.forEach(b => b.checked = true);
+      }
+      applyFilters();
+    });
+
+    /** Re-render product grid based on active filters & sort */
+    function applyFilters() {
+      const catChecked   = [...document.querySelectorAll('.filter-group input[value="Electronics"], .filter-group input[value="Clothing"], .filter-group input[value="Accessories"], .filter-group input[value="Home"]')]
+                            .filter(cb => cb.checked).map(cb => cb.value);
+
+      const priceChecked = [...document.querySelectorAll('.filter-group input[value="0-1500"], .filter-group input[value="1500-4000"], .filter-group input[value="4000+"]')]
+                            .filter(cb => cb.checked).map(cb => cb.value);
+
+      const saleChecked  = document.querySelector('input[value="sale"]')?.checked;
+      const newChecked   = document.querySelector('input[value="new"]')?.checked;
+      const sort         = document.getElementById('sort-select')?.value;
+
+      let filtered = [...PRODUCTS];
+
+      // Category filter
+      if (catChecked.length > 0) {
+        filtered = filtered.filter(p => catChecked.includes(p.category));
+      }
+
+      // Price filter
+      if (priceChecked.length > 0) {
+        filtered = filtered.filter(p => {
+          return priceChecked.some(range => {
+            if (range === '0-1500')    return p.price < 1500;
+            if (range === '1500-4000') return p.price >= 1500 && p.price <= 4000;
+            if (range === '4000+')     return p.price > 4000;
+          });
+        });
+      }
+
+      // Badge filters
+      if (saleChecked) filtered = filtered.filter(p => p.badge === 'Sale');
+      if (newChecked)  filtered = filtered.filter(p => p.badge === 'New');
+
+      // Sorting
+      if (sort === 'price-asc')  filtered.sort((a, b) => a.price - b.price);
+      if (sort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+      if (sort === 'name')       filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+      // Render
+      const grid = document.getElementById('products-grid');
+      const count = document.getElementById('products-count');
+
+      if (grid) grid.innerHTML = filtered.length
+        ? filtered.map(buildProductCard).join('')
+        : `<div style="grid-column:1/-1;text-align:center;padding:var(--space-2xl);color:var(--color-muted)">
+             <div style="font-size:3rem;margin-bottom:1rem">🔍</div>
+             <p>No products match your filters. <a href="#" style="color:var(--color-accent)" onclick="clearFilters()">Clear all</a></p>
+           </div>`;
+
+      if (count) count.textContent = `Showing ${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+    }
+
+    /** Reset all checkboxes and re-render */
+    function clearFilters() {
+      document.querySelectorAll('.filter-sidebar input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.getElementById('sort-select').value = 'default';
+      applyFilters();
+    }
+  </script>
+
+</body>
+</html>
