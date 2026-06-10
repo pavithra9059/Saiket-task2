@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxe Market — Premium Lifestyle Store</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <a href="cart.html" class="nav-cart" aria-label="View cart">
+        🛒 Cart
+        <span class="cart-count" id="cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero container">
+    <div class="hero-content">
+      <span class="hero-eyebrow">New Season Arrivals</span>
+      <h1>Curated for<br>the <em>discerning</em><br>lifestyle</h1>
+      <p class="hero-desc">
+        Handpicked essentials spanning fashion, electronics, and home — where quality meets considered design.
+      </p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn btn-primary">Shop Now →</a>
+        <a href="#featured" class="btn btn-outline">See Featured</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <strong>200+</strong>
+          <span>Products</span>
+        </div>
+        <div class="stat-item">
+          <strong>12K+</strong>
+          <span>Customers</span>
+        </div>
+        <div class="stat-item">
+          <strong>4.8★</strong>
+          <span>Avg. Rating</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img class="hero-img-main"
+           src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700&q=80"
+           alt="Curated lifestyle products">
+      <div class="hero-badge">
+        <span class="hero-badge-icon">🚚</span>
+        <div class="hero-badge-text">
+          <strong>Free Delivery</strong>
+          <span>On orders above ₹999</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ CATEGORIES ══════════════ -->
+  <section class="categories-section">
+    <div class="container">
+      <span class="section-label">Browse by Category</span>
+      <div class="categories-grid">
+        <a href="products.html?cat=Electronics" class="category-card">
+          <span class="category-icon">💻</span>
+          <h3>Electronics</h3>
+          <p>4 products</p>
+        </a>
+        <a href="products.html?cat=Clothing" class="category-card">
+          <span class="category-icon">👗</span>
+          <h3>Clothing</h3>
+          <p>3 products</p>
+        </a>
+        <a href="products.html?cat=Accessories" class="category-card">
+          <span class="category-icon">👜</span>
+          <h3>Accessories</h3>
+          <p>2 products</p>
+        </a>
+        <a href="products.html?cat=Home" class="category-card">
+          <span class="category-icon">🏡</span>
+          <h3>Home</h3>
+          <p>4 products</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ FEATURED PRODUCTS ══════════════ -->
+  <section class="featured-section container" id="featured">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Hand-Picked</span>
+        <h2>Featured Products</h2>
+      </div>
+      <div class="right">
+        <a href="products.html">View all products →</a>
+      </div>
+    </div>
+
+    <!-- Cards rendered by JS (first 4 products) -->
+    <div class="products-grid" id="featured-grid"></div>
+  </section>
+
+
+  <!-- ══════════════ BANNER CTA ══════════════ -->
+  <div class="container">
+    <div class="banner-cta">
+      <div>
+        <span class="section-label">Limited Time</span>
+        <h2>Free shipping on<br>orders over ₹999</h2>
+        <p>Plus easy 30-day returns on everything. No questions asked.</p>
+      </div>
+      <a href="products.html" class="btn btn-primary">Shop Now →</a>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Luxe<span>Market</span></a>
+          <p>Premium lifestyle products, carefully curated and delivered to your door.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?cat=Electronics">Electronics</a></li>
+            <li><a href="products.html?cat=Clothing">Clothing</a></li>
+            <li><a href="products.html?cat=Home">Home</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="cart.html">My Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 LuxeMarket. All rights reserved.</p>
+        <p>Made with ♥ for great design.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════ SCRIPTS ══════════════ -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script>
+    // Render first 4 products in the featured grid
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('featured-grid');
+      if (grid) {
+        grid.innerHTML = PRODUCTS.slice(0, 4).map(buildProductCard).join('');
+      }
+    });
+  </script>
+
+</body>
+</html>
